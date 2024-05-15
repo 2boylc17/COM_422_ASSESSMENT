@@ -3,6 +3,6 @@ from Blizzard import Blizzard
 from Storm import Storm
 
 
-def test_calculate_blizzard():
-    s1 = Storm("test", 100)
-    assert s1.name == "test"
+def test_create_blizzard():
+    b1 = Blizzard("testblizzard", 100, 40)
+    assert b1.name == "testblizzard" and b1.wind_speed == 100 and b1.temp == 40

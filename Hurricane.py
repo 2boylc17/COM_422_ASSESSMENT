@@ -7,12 +7,12 @@ class Hurricane(Storm):
 
     def calculate_classification(self) -> str:
         if self.wind_speed >= 74 and self.wind_speed<= 95:
-            return "F1"
+            return "Category one"
         elif self.wind_speed >= 96 and self.wind_speed<= 110:
             return "Category two"
         elif self.wind_speed >= 111 and self.wind_speed<= 129:
             return "Category three"
-        elif self.wind_speed >= 130 or self.wind_speed <= 156:
+        elif self.wind_speed >= 130 and self.wind_speed <= 156:
             return "Category four"
         elif self.wind_speed > 156:
             return "Category five"
