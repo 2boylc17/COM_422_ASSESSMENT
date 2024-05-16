@@ -6,7 +6,7 @@ class Tornado(Storm):
         super().__init__(name, wind_speed)
 
     def calculate_classification(self) -> str:
-        if self.wind_speed < 72:
+        if self.wind_speed >= 40 and self.wind_speed <= 72:
             return "F0"
         elif self.wind_speed >= 73 and self.wind_speed <= 112:
             return "F1"
