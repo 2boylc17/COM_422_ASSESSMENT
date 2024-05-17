@@ -1,6 +1,7 @@
 from Storm import Storm
 from Tornado import Tornado
 from Blizzard import Blizzard
+from Hurricane import Hurricane
 
 
 class Storm_Centre:
@@ -8,15 +9,17 @@ class Storm_Centre:
         self.storm_list = []
 
     def add_storm(self, storm: Storm) -> bool:
-        if len(self.storm_list) < 20 and not self.already_exists(storm.name) and ((storm, Tornado) or
-                                                                                  isinstance(storm, Blizzard)):
+        if len(self.storm_list) < 20 and not self.already_exists(storm.name) and (isinstance(storm, Tornado) or
+                                                                                  isinstance(storm,
+                                                                                             Blizzard) or isinstance(
+                    storm, Hurricane)):
             self.storm_list.append(storm)
             return True
         return False
 
     def remove_storm(self, name: str) -> bool:
         for storm in self.storm_list:
-            if name == name:
+            if storm.name == name:
                 self.storm_list.remove(storm)
                 return True
         return False
@@ -32,6 +35,8 @@ class Storm_Centre:
             for storm in self.storm_list:
                 if storm.name == name:
                     storm.wind_speed = values["windspeed"]
+                    if len(values) == 2:
+                        storm.temp = values["temp"]
                     return True
         else:
             raise Exception("Values must be provided as a dictionary")
@@ -40,5 +45,5 @@ class Storm_Centre:
     def already_exists(self, name) -> bool:
         for storm in self.storm_list:
             if storm.name == name:
-                return False
-        return True
+                return True
+        return False

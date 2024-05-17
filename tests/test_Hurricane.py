@@ -1,4 +1,3 @@
-import pytest
 from Hurricane import Hurricane
 
 

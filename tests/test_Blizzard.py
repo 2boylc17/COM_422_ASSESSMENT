@@ -1,6 +1,4 @@
-import pytest
 from Blizzard import Blizzard
-from Storm import Storm
 
 
 def test_create_blizzard():
